@@ -2,6 +2,13 @@
 
 ## Usage
 
+## Install
+
+```
+curl -L https://raw.githubusercontent.com/zph/joplin-plugin-helpers/main/bin/symlink-helpers | bash
+```
+(yolo bash)
+
 ```
 git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git .config/joplin-plugin-helpers
 git submodule init
