@@ -1,6 +1,10 @@
 name: Joplin Plugin Releaser
 
 on:
+  workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: true
   push:
     tags:
       - "v*.*.*"
