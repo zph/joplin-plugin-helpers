@@ -3,7 +3,7 @@
 set -eou pipefail
 set -x
 
-declare -a FILES=(bin Earthfile Makefile tsconfig.json .pre-commit-config.yaml)
+declare -a FILES=(bin Earthfile Makefile tsconfig.json .pre-commit-config.yaml .github)
 
 git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git .config/joplin-plugin-helpers
 for f in "${FILES[@]}";do
