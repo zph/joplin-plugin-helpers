@@ -62,6 +62,9 @@ jobs:
       - name: Earthly version
         run: earthly --version
 
+      - name: Run test
+        run: earthly +test
+
       - name: Run build
         run: earthly +build
 

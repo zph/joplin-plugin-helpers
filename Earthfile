@@ -5,6 +5,10 @@ deps:
   COPY ./ .
   RUN npm install
 
+test:
+  FROM +deps
+  RUN pre-commit run --all-files
+
 build:
   FROM +deps
   RUN npm run dist
