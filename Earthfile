@@ -4,6 +4,8 @@ WORKDIR /srv
 deps:
   COPY ./ .
   RUN npm install
+  RUN apt-get update
+  RUN apt-get install pre-commit
 
 test:
   FROM +deps
