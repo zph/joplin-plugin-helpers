@@ -9,7 +9,6 @@ deps:
 
 test:
   FROM +deps
-  RUN ls -lahR .
   RUN pre-commit run --all-files
 
 build:
