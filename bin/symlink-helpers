@@ -7,7 +7,7 @@ readonly HELPERS=".config/joplin-plugin-helpers"
 
 declare -a FILES=(bin Earthfile Makefile tsconfig.json .pre-commit-config.yaml)
 
-git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git "$HELPERS"
+git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git "$HELPERS" || true
 for f in "${FILES[@]}";do
   ln -sf "$HELPERS/${f}" .
 done
