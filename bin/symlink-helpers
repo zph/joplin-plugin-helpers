@@ -3,9 +3,15 @@
 set -eou pipefail
 set -x
 
-declare -a FILES=(bin Earthfile Makefile tsconfig.json .pre-commit-config.yaml .github)
+readonly HELPERS=".config/joplin-plugin-helpers"
 
-git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git .config/joplin-plugin-helpers
+declare -a FILES=(bin Earthfile Makefile tsconfig.json .pre-commit-config.yaml)
+
+git submodule add -b main git@github.com:zph/joplin-plugin-helpers.git "$HELPERS"
 for f in "${FILES[@]}";do
-  ln -sf ".config/joplin-plugin-helpers/${f}" .
+  ln -sf "$HELPERS/${f}" .
 done
+
+# NOTE: we have to copy these into place because github actions need to operate on real file not symlink to submodule
+mkdir -p ./.github/workflows || true
+cp "$HELPERS/.github/templates/plugin.yml" .github/workflows/ci.yml
