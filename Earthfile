@@ -5,7 +5,7 @@ deps:
   COPY ./ .
   RUN npm install
   RUN apt-get update
-  RUN apt-get install -y pre-commit
+  RUN apt-get install -y pre-commit jq
 
 test:
   FROM +deps
